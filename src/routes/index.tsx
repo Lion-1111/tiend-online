@@ -124,59 +124,73 @@ function Home() {
       </section>
 
       {/* SEGUNDA MANO */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
-        <img
-          src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80"
-          alt="Ropa de segunda mano"
-          className="w-full aspect-[4/5] object-cover"
-        />
-        <div>
-          <div className="text-xs tracking-[0.3em] uppercase text-neutral-500 mb-3">
-            Segunda Mano · Moda Circular
+      <section className="bg-[#f3ebe0] py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative">
+            <img
+              src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80"
+              alt="Ropa de segunda mano"
+              className="w-full aspect-[4/5] object-cover"
+            />
+            <div className="absolute bottom-6 right-0 bg-black text-white px-5 py-3 text-xs font-bold tracking-widest">
+              SEGUNDA MANO
+            </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-[1.05]">
-            ROPA DE
-            <br />
-            SEGUNDA
-            <br />
-            MANO
-          </h2>
-          <p className="mt-6 text-neutral-700">
-            Creemos que la moda no tiene fecha de caducidad. Cada pieza tiene una historia
-            — y merece una segunda oportunidad. Encuentra ropa, calzado y accesorios de
-            marcas premium en excelente estado, a precios que hacen sentido.
-          </p>
-          <p className="mt-4 text-neutral-700">
-            Menos desperdicio. Más estilo. Comprar de segunda mano es el movimiento más
-            inteligente —y más responsable— que puedes hacer hoy.
-          </p>
-          <ul className="mt-6 space-y-2 text-sm">
-            <li>✓ Precios hasta 70% más bajos que el original</li>
-            <li>✓ Contribuyes a reducir el desperdicio textil</li>
-            <li>✓ Piezas revisadas y en excelente estado</li>
-          </ul>
-          <Link
-            to="/catalogo"
-            className="mt-8 inline-block bg-black text-white px-6 py-3 text-xs font-bold tracking-widest hover:bg-neutral-800"
-          >
-            EXPLORAR SEGUNDA MANO
-          </Link>
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-neutral-600 mb-4">
+              <Recycle className="w-4 h-4" />
+              Moda Circular
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black tracking-tight leading-[0.95]">
+              ROPA DE
+              <br />
+              SEGUNDA
+              <br />
+              MANO
+            </h2>
+            <p className="mt-6 text-neutral-700">
+              Creemos que la moda no tiene fecha de caducidad. Cada pieza tiene una
+              historia — y merece una segunda oportunidad. Encuentra ropa, calzado y
+              accesorios de marcas premium en excelente estado, a precios que hacen
+              sentido.
+            </p>
+            <p className="mt-4 text-neutral-700">
+              Menos desperdicio. Más estilo. Comprar de segunda mano es el movimiento más
+              inteligente —y más responsable— que puedes hacer hoy.
+            </p>
+            <ul className="mt-6 space-y-2 text-sm">
+              <li>✓ Precios hasta 70% más bajos que el original</li>
+              <li>✓ Contribuyes a reducir el desperdicio textil</li>
+              <li>✓ Piezas revisadas y en excelente estado</li>
+            </ul>
+            <Link
+              to="/catalogo"
+              className="mt-8 inline-block bg-black text-white px-6 py-3 text-xs font-bold tracking-widest hover:bg-neutral-800"
+            >
+              EXPLORAR SEGUNDA MANO
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* ROPA GRATIS */}
-      <section className="bg-neutral-50 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-xs tracking-[0.3em] uppercase text-neutral-500 mb-3">
+      <section className="bg-black text-white py-24">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 border border-neutral-700 px-4 py-2 text-[10px] tracking-[0.3em] uppercase text-neutral-300 mb-6">
+            <Gift className="w-4 h-4" />
             Iniciativa Comunitaria
           </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight">ROPA GRATIS</h2>
-          <p className="mt-6 max-w-2xl text-neutral-700">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tight">
+            ROPA
+            <br />
+            GRATIS
+          </h2>
+          <p className="mt-6 max-w-2xl mx-auto text-neutral-300">
             En LØN & CO creemos que vestirse bien no debería ser un privilegio. Por eso
             tenemos una sección de ropa completamente gratuita para quienes más lo
             necesitan. Si tú puedes dar, da. Si necesitas, toma sin pena.
           </p>
-          <div className="mt-12 grid md:grid-cols-3 gap-8">
+          <div className="mt-16 grid md:grid-cols-3 gap-6 text-left">
             {[
               {
                 t: "¿Cómo funciona?",
@@ -191,27 +205,29 @@ function Home() {
                 d: "Puedes recoger tu ropa en nuestro punto de encuentro o coordinamos entrega. Contáctanos por WhatsApp y te ayudamos sin complicaciones.",
               },
             ].map((b) => (
-              <div key={b.t} className="bg-white p-6 border border-neutral-200">
+              <div key={b.t} className="border border-neutral-800 bg-neutral-950 p-6">
                 <h3 className="font-bold text-lg mb-3">{b.t}</h3>
-                <p className="text-sm text-neutral-700">{b.d}</p>
+                <p className="text-sm text-neutral-400">{b.d}</p>
               </div>
             ))}
           </div>
-          <div className="mt-12">
-            <div className="text-xl font-bold">¿QUIERES DONAR O RECIBIR?</div>
-            <p className="text-neutral-700 mt-2">
+          <div className="mt-20">
+            <div className="text-2xl md:text-3xl font-black tracking-tight">
+              ¿QUIERES DONAR O RECIBIR?
+            </div>
+            <p className="text-neutral-400 mt-3">
               Juntos construimos comunidad. Cada pieza de ropa cuenta.
             </p>
-            <div className="mt-6 flex gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href="https://wa.me/"
-                className="bg-black text-white px-6 py-3 text-xs font-bold tracking-widest hover:bg-neutral-800"
+                className="bg-white text-black px-6 py-4 text-xs font-bold tracking-widest inline-flex items-center justify-center gap-2 hover:bg-neutral-200"
               >
-                QUIERO DONAR
+                QUIERO DONAR <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="https://wa.me/"
-                className="border border-black px-6 py-3 text-xs font-bold tracking-widest hover:bg-black hover:text-white"
+                className="border border-white px-6 py-4 text-xs font-bold tracking-widest hover:bg-white hover:text-black"
               >
                 NECESITO ROPA
               </a>
@@ -219,6 +235,7 @@ function Home() {
           </div>
         </div>
       </section>
+
 
       {/* VIVE EL JUEGO */}
       <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
