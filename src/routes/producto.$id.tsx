@@ -78,7 +78,7 @@ function ProductoDetalle() {
               <div className="mt-10">
                 <div className="text-xs font-bold tracking-widest mb-3">TALLA</div>
                 <div className="grid grid-cols-6 gap-2">
-                  {product.sizes.map((s) => (
+                  {product.sizes.map((s: number) => (
                     <button
                       key={s}
                       onClick={() => setSize(s)}
