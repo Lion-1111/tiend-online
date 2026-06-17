@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProductCard } from "@/components/ProductCard";
 import { brands, categories, products } from "@/lib/products";
+import { Recycle, Gift } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
