@@ -9,6 +9,9 @@ export function SiteHeader() {
           LØN & CO
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest">
+          <a href="#hero" className="hover:opacity-60">
+            INICIO
+          </a>
           <Link to="/catalogo" search={{ categoria: "hombre" }} className="hover:opacity-60">
             HOMBRE
           </Link>
