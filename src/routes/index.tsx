@@ -31,7 +31,7 @@ function Home() {
       <SiteHeader />
 
       {/* HERO */}
-      <section id="hero" className="relative h-[88vh] min-h-[600px] w-full overflow-hidden">
+      <section className="relative h-[88vh] min-h-[600px] w-full overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1920&q=80"
           alt="Define tu estilo"
