@@ -124,7 +124,21 @@ function Home() {
       </section>
 
       {/* SEGUNDA MANO */}
-      <section className="bg-[#f3ebe0] py-20">
+      <section className="relative bg-[#f3ebe0] py-20">
+        {/* Badge flotante rotatorio */}
+        <div className="pointer-events-none absolute top-8 right-8 md:top-12 md:right-16 z-20 animate-[spin_12s_linear_infinite]">
+          <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full bg-black text-white flex items-center justify-center shadow-xl">
+            <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full">
+              <defs>
+                <path id="circlePath" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
+              </defs>
+              <text fill="white" className="text-[22px] font-bold tracking-[0.3em] uppercase">
+                <textPath href="#circlePath">SEGUNDA MANO · MODA CIRCULAR · </textPath>
+              </text>
+            </svg>
+            <Recycle className="w-8 h-8 md:w-10 md:h-10" />
+          </div>
+        </div>
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <img
@@ -136,6 +150,7 @@ function Home() {
               SEGUNDA MANO
             </div>
           </div>
+
           <div>
             <div className="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-neutral-600 mb-4">
               <Recycle className="w-4 h-4" />
