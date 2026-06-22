@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { formatPrice, products } from "@/lib/products";
+import { useCart } from "@/lib/cart";
 
 export const Route = createFileRoute("/producto/$id")({
   loader: ({ params }) => {
@@ -37,6 +38,12 @@ function ProductoDetalle() {
   const { product } = Route.useLoaderData();
   const [size, setSize] = useState<number | null>(null);
   const hasSizes = product.sizes.length > 0 && product.sizes[0] !== 0;
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    if (hasSizes && !size) return;
+    addItem(product, size ?? 0, 1);
+  };
 
   return (
     <div className="min-h-screen bg-white text-black">
@@ -101,6 +108,7 @@ function ProductoDetalle() {
             )}
 
             <button
+              onClick={handleAddToCart}
               disabled={hasSizes && !size}
               className="mt-8 w-full bg-black text-white py-4 text-xs font-bold tracking-widest disabled:bg-neutral-300 disabled:cursor-not-allowed hover:bg-neutral-800"
             >

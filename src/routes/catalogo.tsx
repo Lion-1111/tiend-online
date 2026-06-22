@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useMemo } from "react";
 import { z } from "zod";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -7,6 +8,7 @@ import { products } from "@/lib/products";
 
 const searchSchema = z.object({
   categoria: z.enum(["hombre", "mujer", "ninos", "accesorios"]).optional(),
+  q: z.string().optional(),
 });
 
 export const Route = createFileRoute("/catalogo")({
@@ -24,9 +26,24 @@ export const Route = createFileRoute("/catalogo")({
 });
 
 function Catalogo() {
-  const { categoria } = Route.useSearch();
-  const filtered = categoria ? products.filter((p) => p.category === categoria) : products;
-  const title = categoria ? categoria.toUpperCase() : "TODO";
+  const { categoria, q } = Route.useSearch();
+  
+  // Optimizamos el filtrado con useMemo para que solo se recalcule si cambia la URL
+  const filtered = useMemo(() => {
+    let res = products;
+    if (categoria) res = res.filter((p) => p.category === categoria);
+    if (q) {
+      const qLower = q.toLowerCase();
+      res = res.filter(p => 
+        p.name.toLowerCase().includes(qLower) || 
+        p.brand.toLowerCase().includes(qLower) || 
+        p.description.toLowerCase().includes(qLower)
+      );
+    }
+    return res;
+  }, [categoria, q]);
+
+  const title = q ? `BUSCANDO: "${q.toUpperCase()}"` : (categoria ? categoria.toUpperCase() : "TODO");
 
   return (
     <div className="min-h-screen bg-white text-black">
